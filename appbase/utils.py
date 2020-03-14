@@ -638,7 +638,7 @@ class SuccessAPIRenderer(BaseRenderer):
     format = 'json'
 
     def render(self, data: dict, accepted_media_type=None, renderer_context: dict = None):
-        while data is not None:
+        if data is not None:
             if data.__contains__('error'):
                 return json.dumps(data)
             elif data.__contains__('data'):
